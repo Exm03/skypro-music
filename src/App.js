@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import cntrBar from "./components/bar"
+import filter from './components/centerBlockFilter';
 
 function App() {
   return ( 
@@ -54,16 +55,7 @@ function App() {
                   />
                 </div>
                 <h2 className="centerblock__h2">Треки</h2>
-                <div className="centerblock__filter filter">
-                  <div className="filter__title">Искать по:</div>
-                  <div className="filter__button button-author _btn-text">
-                    исполнителю
-                  </div>
-                  <div className="filter__button button-year _btn-text">
-                    году выпуска
-                  </div>
-                  <div className="filter__button button-genre _btn-text">жанру</div>
-                </div>
+                {filter()}
                 <div className="centerblock__content">
                   <div className="content__title playlist-title">
                     <div className="playlist-title__col col01">Трек</div>
