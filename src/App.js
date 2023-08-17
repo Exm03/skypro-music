@@ -5,6 +5,7 @@ import cntrBar from "./components/bar"
 import filter from './components/centerBlockFilter';
 import search from './components/centerBlockSearch';
 import centerContent from './components/cntrContent';
+import footer from './components/footer';
 
 function App() {
   return ( 
@@ -83,7 +84,7 @@ function App() {
               </div>
             </main>
             {cntrBar()}
-            <footer className="footer"></footer>
+            {footer()}
           </div>
         </div>
       );
