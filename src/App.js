@@ -3,19 +3,10 @@ import React from 'react';
 import './App.css';
 import cntrBar from "./components/bar"
 import filter from './components/centerBlockFilter';
+import search from './components/centerBlockSearch';
 
 function App() {
   return ( 
-    <html lang="ru">
-      <head>
-        <meta charset="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-        <link rel="stylesheet" href="css/style.css" />
-        <title>Skypro</title>
-      </head>
-      <body>
         <div className="wrapper">
           <div className="container">
             <main className="main">
@@ -43,17 +34,7 @@ function App() {
                 </div>
               </nav>
               <div className="main__centerblock centerblock">
-                <div className="centerblock__search search">
-                  <svg className="search__svg">
-                    <use xlinkHref="img/icon/sprite.svg#icon-search"></use>
-                  </svg>
-                  <input
-                    className="search__text"
-                    type="search"
-                    placeholder="Поиск"
-                    name="search"
-                  />
-                </div>
+                {search()}
                 <h2 className="centerblock__h2">Треки</h2>
                 {filter()}
                 <div className="centerblock__content">
@@ -658,8 +639,6 @@ function App() {
             <footer className="footer"></footer>
           </div>
         </div>
-      </body>
-    </html>
       );
 }
 
