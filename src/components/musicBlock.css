@@ -45,3 +45,7 @@
     display: block;
     visibility: visible;
   }
+  
+  .hiddenNavMenu {
+    display: none;
+   }
