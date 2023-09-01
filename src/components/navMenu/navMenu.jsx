@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 import React, { useState } from 'react'
 import * as S from './navMenu.styles'
+import { NavLink } from 'react-router-dom'
 
 export function NavMenu() {
   const [isOpenMenu, setOpenMenu] = useState(false)
@@ -8,10 +10,17 @@ export function NavMenu() {
     setOpenMenu(!isOpenMenu)
   }
 
+  const handleLogOut = (token) => {
+    localStorage.removeItem('token', token)
+    window.location.reload()
+  }
+
   return (
     <S.MainNav>
       <S.NavLogo>
-        <S.LogoImage src="img/logo.png" alt="logo" />
+      <NavLink to="/">
+        <S.LogoImage href="#" src="../img/logo.png" alt="logo" />
+        </NavLink>
       </S.NavLogo>
       <S.NavBurger onClick={handleClickMenu}>
         <S.BurgerLine></S.BurgerLine>
@@ -22,19 +31,19 @@ export function NavMenu() {
         <S.NavMenu>
           <S.MenuList>
             <S.MenuItem>
-              <S.MenuLink href="#">
-                Главное
-              </S.MenuLink>
+            <NavLink to="/">
+              <S.MenuLink href="#">Главное</S.MenuLink>
+              </NavLink>
             </S.MenuItem>
             <S.MenuItem>
-              <S.MenuLink href="#">
-                Мой плейлист
-              </S.MenuLink>
+            <NavLink to="/favourites">
+              <S.MenuLink href="#">Мой плейлист</S.MenuLink>
+              </NavLink>
             </S.MenuItem>
             <S.MenuItem>
-              <S.MenuLink href="../signin.html">
-                Войти
-              </S.MenuLink>
+            <NavLink to="/login">
+              <S.MenuLink href="#" onClick={handleLogOut}>Выйти</S.MenuLink>
+              </NavLink>
             </S.MenuItem>
           </S.MenuList>
         </S.NavMenu>

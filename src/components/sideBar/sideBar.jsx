@@ -1,51 +1,47 @@
-import React, { SideBarItem } from './sideBarItem/sideBarItem'
+/* eslint-disable react/prop-types */
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 import * as S from './sideBar.styles'
 
-// eslint-disable-next-line react/prop-types
-export function SideBar({ isLoading }) {
+export function SideBar({ isLoading, categories }) {
+
+  const handleLogOut = (token) => {
+    localStorage.removeItem('token', token)
+    window.location.reload()
+  }
+
   return (
     <S.MainSidebar>
       <S.SidebarPersonal>
         <S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
-        <S.SidebarIcon>
-          <svg alt="logout">
+        <NavLink to="/login">
+              <S.SidebarIcon href="#" onClick={handleLogOut}>
+                <svg alt="logout">
             <use xlinkHref="img/icon/sprite.svg#logout"></use>
           </svg>
-        </S.SidebarIcon>
+          </S.SidebarIcon>
+              </NavLink>
       </S.SidebarPersonal>
       <S.SidebarBlock>
         {isLoading ? (
           <S.SidebarList>
-            <S.SkeletinSidebarItem></S.SkeletinSidebarItem>
-            <S.SkeletinSidebarItem></S.SkeletinSidebarItem>
-            <S.SkeletinSidebarItem></S.SkeletinSidebarItem>
+            <S.SkeletonSidebarItem></S.SkeletonSidebarItem>
+            <S.SkeletonSidebarItem></S.SkeletonSidebarItem>
+            <S.SkeletonSidebarItem></S.SkeletonSidebarItem>
           </S.SidebarList>
         ) : (
           <S.SidebarList>
-            <SideBarItem
-              sideBar={{
-                link: '#',
-                img: 'img/playlist01.png',
-                name: "day's playlist",
-              }}
-            />
-            <SideBarItem
-              sideBar={{
-                link: '#',
-                img: 'img/playlist02.png',
-                name: '100 танцевальных хитов',
-              }}
-            />
-            <SideBarItem
-              sideBar={{
-                link: '#',
-                img: 'img/playlist03.png',
-                name: 'инди-заряд',
-              }}
-            />
+            {categories.map((category) => {
+              return (
+                <S.SidebarItem key={category.id}>
+                  <S.SidebarLink to={`/category/${category.id}`}>
+                    <S.SidebarImage src={category.img} alt={category.title} />
+                  </S.SidebarLink>
+                </S.SidebarItem>
+              )
+            })}
           </S.SidebarList>
         )}
-
       </S.SidebarBlock>
     </S.MainSidebar>
   )

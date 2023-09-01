@@ -1,4 +1,21 @@
 import styled, { keyframes }  from 'styled-components'
+import { Link } from 'react-router-dom'
+
+export const SidebarItem = styled.div`
+  width: 250px;
+  height: 150px;
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+`
+export const SidebarLink = styled(Link)`
+  width: 100%;
+  height: 100%;
+`
+export const SidebarImage = styled.img`
+	width: 100%;
+	height: auto;
+`
 
 export const MainSidebar = styled.div`
   max-width: 418px;
@@ -20,7 +37,6 @@ export const SidebarPersonal = styled.div`
   justify-content: flex-end;
   padding: 12px 0 15px 0;
 `
-
 export const SidebarPersonalName = styled.p`
   font-style: normal;
   font-weight: 400;
@@ -36,7 +52,6 @@ export const SidebarIcon = styled.div`
   border-radius: 50%;
   cursor: pointer;
 `
-
 export const SidebarBlock = styled.div`
   height: 100%;
   padding: 240px 0 0 0;
@@ -63,18 +78,16 @@ export const SidebarList = styled.div`
   -ms-flex-align: center;
   align-items: center;
 `
-
 const blinker = keyframes`
   from { opacity: 1.0; }
   to { opacity: 0.6; }
 `
 
-export const SkeletinSidebarItem = styled.div`
+export const SkeletonSidebarItem = styled.div`
   width: 250px;
   height: 150px;
   background-color: #313131;
   animation: ${blinker} 1s cubic-bezier(1, 2, 0, 1) infinite;
-
   &:not(:last-child) {
     margin-bottom: 30px;
   }

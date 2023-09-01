@@ -16,6 +16,7 @@ export const LogoImage = styled.img`
   width: 113.33px;
   height: 17px;
   color: #181818;
+  cursor: pointer;
 `
 
 export const NavBurger = styled.div`
