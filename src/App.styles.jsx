@@ -1,3 +1,6 @@
+import styled, { createGlobalStyle } from 'styled-components'
+
+export const GlobalStyle = createGlobalStyle`
 * {
   margin: 0;
   padding: 0;
@@ -17,21 +20,14 @@ a:visited {
   font-family: "StratosSkyeng", sans-serif;
   cursor: pointer;
 }
-
-button,
-._btn {
-  cursor: pointer;
-}
-
 ul li {
   list-style: none;
 }
-
 @font-face {
   font-family: "StratosSkyeng";
   src: local("StratosSkyeng"), local("StratosSkyeng"),
-    url("./fonts/StratosSkyeng.woff2") format("woff2"),
-    url("./fonts/StratosSkyeng.woff") format("woff");
+    url("../public/fonts/StratosSkyeng.woff2") format("woff2"),
+    url("../public/fonts/StratosSkyeng.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -43,20 +39,9 @@ body {
   font-family: "StratosSkyeng", sans-serif;
   color: #ffffff;
 }
-
-.wrapper {
-  width: 100%;
-  min-height: 100%;
-  overflow: hidden;
-  background-color: #383838;
-}
-
-.container {
-  max-width: 1920px;
-  height: 100vh;
-  margin: 0 auto;
-  position: relative;
-  background-color: #181818;
+button,
+._btn {
+  cursor: pointer;
 }
 
 ._btn-text:hover {
@@ -90,7 +75,22 @@ body {
   cursor: pointer;
 }
 
-.main {
+`
+
+export const Wrapper = styled.div`
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background-color: #383838;
+`
+export const Container = styled.div`
+  max-width: 1920px;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  background-color: #181818;
+`
+export const Main = styled.main`
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -102,55 +102,5 @@ body {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
-
-.logo__image {
-  width: 113.33px;
-  height: 17px;
-  color: #181818;
-}
-
-.burger__line {
-  display: inline-block;
-  width: 100%;
-  height: 1px;
-  background-color: #d3d3d3;
-}
-
-.menu__list {
-  padding: 18px 0 10px 0;
-}
-
-.menu__item {
-  padding: 5px 0;
-  margin-bottom: 16px;
-}
-
-.menu__link {
-  color: #ffffff;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.filter__title {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  margin-right: 15px;
-}
-
-.filter__button {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  border: 1px solid #ffffff;
-  border-radius: 60px;
-  padding: 6px 20px;
-}
-
-.filter__button:not(:last-child) {
-  margin-right: 10px;
-}
+`
+export const Footer = styled.footer``

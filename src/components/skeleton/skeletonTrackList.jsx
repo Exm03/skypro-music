@@ -1,11 +1,24 @@
-import React from "react";
-import '../centerBlockSearch.css';
-import './skeleton.css';
+import { Filter } from '../trackList/filter/filter';
 import { SkeletonTrack } from './skeletonTrack';
+import React from 'react';
+
 
 export function SkeletonTrackList () {
 	return (
-		
+		<div className="main__centerblock centerblock">
+		<div className="centerblock__search search">
+		  <svg className="search__svg">
+			 <use xlinkHref="img/icon/sprite.svg#icon-search"></use>
+		  </svg>
+		  <input
+			 className="search__text"
+			 type="search"
+			 placeholder="Поиск"
+			 name="search"
+		  />
+		</div>
+		<h2 className="centerblock__h2">Треки</h2>
+		<Filter />
 		<div className="centerblock__content">
 		  <div className="content__title playlist-title">
 			 <div className="playlist-title__col col01">Трек</div>
@@ -18,25 +31,14 @@ export function SkeletonTrackList () {
 			 </div>
 		  </div>
 		  <div className="content__playlist playlist">
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
-			{SkeletonTrack()}
+			<SkeletonTrack />
+			<SkeletonTrack />
+			<SkeletonTrack />
+			<SkeletonTrack />
+			<SkeletonTrack />
+			<SkeletonTrack />
 		  </div>
 		</div>
+	 </div>
 	)
 }
