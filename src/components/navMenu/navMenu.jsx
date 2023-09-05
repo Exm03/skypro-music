@@ -1,18 +1,19 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 import React, { useState } from 'react'
 import * as S from './navMenu.styles'
 import { NavLink } from 'react-router-dom'
 
-export function NavMenu() {
+export function NavMenu({ setToken }) {
   const [isOpenMenu, setOpenMenu] = useState(false)
 
   function handleClickMenu() {
     setOpenMenu(!isOpenMenu)
   }
 
-  const handleLogOut = (token) => {
+  const handleLogOut = () => {
     localStorage.removeItem('token', token)
-    window.location.reload()
+    setToken(false)
   }
 
   return (

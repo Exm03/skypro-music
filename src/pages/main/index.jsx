@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import * as S from './index.styles'
 import { Player } from '../../components/audioPlayer/audioPlayer'
@@ -7,7 +8,7 @@ import { SideBar } from '../../components/sideBar/sideBar'
 import { useState, useEffect } from 'react'
 import { CATEGORIES } from '../../constants'
 
-export function MainPage() {
+export function MainPage({ setToken }) {
 	const [isLoading, setLoading] = useState(true)
 
 	useEffect(() => {
@@ -20,7 +21,7 @@ export function MainPage() {
 		<S.Container>
 		<S.Main>
 		  <NavMenu />
-		  <TrackList isLoading={isLoading} />
+		  {<TrackList isLoading={isLoading} setToken={setToken} />}
 		  <SideBar isLoading={isLoading} categories={CATEGORIES} />
 		</S.Main>
 		<Player isLoading={isLoading} />
