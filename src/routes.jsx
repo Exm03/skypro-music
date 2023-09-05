@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-undef */
 import React from 'react'
@@ -15,11 +16,11 @@ export const AppRoutes = ({token, setToken }) => {
     <Routes>
 
       <Route path="/login" element={<Login setToken={setToken} />}></Route>
-      <Route element={<ProtectedRoute token={token} />}>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/favourites" element={<Favourites/>}></Route>
-      <Route path="/category/:id" element={<Category />} />
-      </Route>
+
+      <Route path="/" element={<ProtectedRoute token={token} ><MainPage/> </ProtectedRoute>} />
+      <Route path='/favourites' element={<ProtectedRoute token={token} ><Favourites/> </ProtectedRoute>}></Route>
+      <Route path="/category/:id" element={<ProtectedRoute token={token} ><Category/> </ProtectedRoute>} />
+
       <Route path="/register" element={<Register />}></Route>
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
