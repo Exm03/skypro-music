@@ -4,16 +4,16 @@ import React, { useState } from 'react'
 import * as S from './navMenu.styles'
 import { NavLink } from 'react-router-dom'
 
-export function NavMenu({ setToken }) {
+export function NavMenu() {
   const [isOpenMenu, setOpenMenu] = useState(false)
 
   function handleClickMenu() {
     setOpenMenu(!isOpenMenu)
   }
 
-  const handleLogOut = () => {
+  const handleLogOut = (token) => {
     localStorage.removeItem('token', token)
-    setToken(false)
+
   }
 
   return (
